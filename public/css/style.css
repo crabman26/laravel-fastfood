@@ -1,0 +1,55 @@
+body {
+	background-image: url('../storage/meat_sauce_restaurant_hot.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center center;
+	-webkit-background-size: cover;
+}
+
+nav ul li {
+   display: inline;
+}
+
+a {
+	text-decoration: none;
+}
+
+#main-nav {
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+}
+
+#main-nav ul {
+	padding-top: 10px;
+}
+
+.main-link {
+	padding-right: 30px;
+}
+
+.header {
+	text-align: center;
+}
+
+.box{
+    width: 600px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+}
+
+.has-error{
+    border-color: #cc0000;
+    background-color: #ffff99;
+}
+
+#login-link {
+	padding-left: 340px;
+}
+
+#admin-link {
+	padding-left: 250px;
+}
+
+#outter {
+	background-color: #fff;
+}
