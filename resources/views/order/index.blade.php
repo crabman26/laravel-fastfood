@@ -4,6 +4,7 @@
 	<br/>
 	<div align="right">
 		<button type="button" name="add" id="add_data" class="btn btn-success btn-sm">Add order</button>
+		<a href="{{ url('order/dynamic_pdf/pdf') }}"><button type="button" name="print" id="print_data" class="btn btn-info btn-sm">Print orders</button></a>
 	</div>
 	<table id="orders_table" style="width:100%;" class="table table-bordered">
 		<thead>

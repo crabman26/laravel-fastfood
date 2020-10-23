@@ -8,6 +8,7 @@ use App\Order;
 use Validator;
 use DataTables;
 use Mail;
+use PDF;
 
 class OrderAjaxController extends Controller
 {
@@ -244,6 +245,47 @@ class OrderAjaxController extends Controller
         echo json_encode($users);
     }
 
+
+    function pdf(){
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($this->convert_order_to_html());
+        return $pdf->stream();
+    }
+
+    function convert_order_to_html(){
+        $orders = DB::table('orders')
+                ->limit(10)
+                ->join('products','orders.product_id','=','products.id')
+                ->get();
+        $output = '
+            <h3 align="center">Order Data</h3>
+            <table width="100%;" style="border-collapse: collapse; border: 0px;">
+                <tr>
+                    <th style="border: 1px solid; padding:12px;" width="20%;">Fullname</th>
+                    <th style="border: 1px solid; padding:12px;" width="20%;">Product</th>
+                    <th style="border: 1px solid; padding:12px;" width="20%;">Adress</th>
+                    <th style="border: 1px solid; padding:12px;" width="20%;">Phone</th>
+                    <th style="border: 1px solid; padding:12px;" width="20%;">State</th>
+                    <th style="border: 1px solid; padding:12px;" width="20%;">Status</th>
+                </tr>
+            ';
+            foreach($orders as $order){
+                $output .= '
+                <tr>
+                    <td style="border: 1px solid; padding:12px;">'.$order->FullName.'</td>
+                    <td style="border: 1px solid; padding:12px;">'.$order->Title.'</td>
+                    <td style="border: 1px solid; padding:12px;">'.$order->Adress.'</td>
+                    <td style="border: 1px solid; padding:12px;">'.$order->Phone.'</td>
+                    <td style="border: 1px solid; padding:12px;">'.$order->State.'</td>
+                    <td style="border: 1px solid; padding:12px;">'.$order->Status.'</td>
+                </tr>
+                ';
+            }
+            
+            $output .='</table>';
+            return $output;
+        
+    }
 
 
     

@@ -90,6 +90,7 @@ Route::get('order/massremove','OrderAjaxController@massremove')->name('order.mas
 Route::get('order/getusers','OrderAjaxController@getusers')->name('order.getusers');
 Route::get('order/memberorder','OrderAjaxController@memberorder')->name('order.memberorder');
 Route::get('order/cancelorder','OrderAjaxController@cancelorder')->name('order.cancelorder');
+Route::get('order/dynamic_pdf/pdf','OrderAjaxController@pdf');
 
 //User controllers
 Route::get('usersajax','UserAjaxController@index')->name('usersajax');
@@ -104,6 +105,8 @@ Route::get('usersajax/userid','UserAjaxController@userid')->name('userajax.useri
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/chart', 'GoogleGraphController@index')->name('chart');
 
 Auth::routes();
 

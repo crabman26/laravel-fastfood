@@ -28,6 +28,7 @@
 								<li class="main-link"><a href="postdata">Posts</a></li>
 								<li class="main-link"><a href="contactform">Contact</a></li>
 								<li class="main-link"><a href="usersajax">Users</a></li>
+								<li class="main-link"><a href="chart">Stats</a></li>
 							@elseif($role == 'Member')
 		                        <li class="main-link"><a href="{{route('memberorders')}}">Orders</a></li>
 		                        <li class="main-link"><a href="{{route('memberprofile')}}">Profile</a></li>
