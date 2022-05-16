@@ -59,6 +59,10 @@ class ContactController extends Controller
     		$message->to('saquib.rizwan@cloudways.com')->subject('Reply to contact from fastfood');
     	});
 
+        $contact = Contact::find($request->get('Id'));
+        $contact->Answer = 'Yes';
+        $contact->save();
+
     	return redirect()->route('contactform')->with('success','E-mail sent succesfully.');
     }
 }

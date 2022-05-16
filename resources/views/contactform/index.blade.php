@@ -18,7 +18,7 @@
 			<td>{{ $contact['E-mail'] }}</td>
 			<td>{{ $contact['Phone'] }}</td>
 			<td>{{ $contact['Message'] }}</td>
-			<td><a href="{{ url('contact/replyform',['Id' => $contact['id']]) }}">Reply</a></td>
+			<td><a href="{{ url('contact/replyform',['Id' => $contact['id']]) }}" class="btn btn-xs btn-primary edit"><i class="glyphicon glyphicon-edit"></i>Reply</a></td>
 		</tr>
 	@endforeach
 </table>

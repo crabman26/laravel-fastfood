@@ -1,7 +1,7 @@
 @extends('main.master')
 @section('content')
   <div class="container box">
-   <h3 align="center">Fastfood Login System</h3><br />
+   <h3 align="center">Fastfood Login</h3><br />
 
    @if(isset(Auth::user()->email))
     <script>window.location="/main/successlogin";</script>
